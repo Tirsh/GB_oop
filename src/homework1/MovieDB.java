@@ -7,10 +7,23 @@ import java.util.regex.Pattern;
 
 public class MovieDB {
     private Set<Movie> movies;
+    private String dataFile;
     public MovieDB(String fileLoadFrom){
-        ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(fileLoadFrom));
-        objectInputStream.
-
+        this.dataFile = fileLoadFrom;
+        movies = new HashSet<>();
+        try {
+            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(fileLoadFrom));
+            while (true) {
+                Movie movie = (Movie) objectInputStream.readObject();
+                if (movie.isMarker())
+                    break;
+                movies.add(movie);
+            }
+            objectInputStream.close();
+        }catch (IOException | ClassNotFoundException e){
+            System.out.println("Что-то пошло не так");
+            System.out.println("Файл базы не найден");
+        }
     }
 
     public MovieDB(List<Movie> movieList) {
@@ -29,15 +42,25 @@ public class MovieDB {
         }
         return result;
     }
-    private String showResult(Set<Movie> movies){
+    public void cleanAll(){
+        movies = new HashSet<>();
+    }
+    public void addMovie(Movie movie){
+        movies.add(movie);
+    }
+    public static String showResult(Set<Movie> movies){
         StringBuilder stringBuilder = new StringBuilder();
-        for (Movie movie:movies) stringBuilder.append(movie);
+        for (Movie movie:movies) {
+            stringBuilder.append(movie);
+            stringBuilder.append("-----------\n");
+        }
         return stringBuilder.toString();
     }
-    public void saveData(String file){
+    public void saveData(){
         try {
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(dataFile));
             for (Movie movie : movies) objectOutputStream.writeObject(movie);
+            objectOutputStream.writeObject(new Movie());
             objectOutputStream.close();
         }catch (IOException e){
             System.out.println("Что-то пошло не так");
