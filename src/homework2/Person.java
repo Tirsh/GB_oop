@@ -1,5 +1,6 @@
 package homework2;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Person {
@@ -15,13 +16,13 @@ public class Person {
         this.birthday = birthday;
     }
 
+
     @Override
     public String toString() {
-        return "Person{" +
-                "firstName='" + firstName + '\'' +
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", male=" + male +
-                ", birthday=" + birthday +
-                '}';
+                ", sex='" + (male? "male":"woman") + '\'' +
+                ", birthday=" + sdf.format(birthday.getTime());
     }
 }
