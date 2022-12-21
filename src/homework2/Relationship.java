@@ -1,6 +1,8 @@
 package homework2;
 
-public class Relationship {
+import java.io.Serializable;
+
+public class Relationship implements Serializable {
     private final Person personA;
     private final Person personB;
     private final RelationshipsKind relationshipsKind;
