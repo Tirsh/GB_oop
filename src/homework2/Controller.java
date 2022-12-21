@@ -1,6 +1,5 @@
 package homework2;
 
-
 import java.io.*;
 import java.util.*;
 
@@ -15,6 +14,7 @@ public class Controller {
             family = new Family((Map<Person, Set<Relationship>>) objectInputStream.readObject());
             objectInputStream.close();
         }catch (IOException | ClassNotFoundException e){
+            System.out.println("new");
             family = new Family();
         }
     }

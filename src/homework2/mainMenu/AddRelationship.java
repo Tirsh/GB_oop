@@ -42,7 +42,18 @@ public class AddRelationship implements Option{
                 System.out.printf("%d. %s\n", 1 + i++, p);
             }
             Scanner scanner = new Scanner(System.in);
-            return persons[scanner.nextInt() - 1];
+            while (true) {
+                if (scanner.hasNextInt()) {
+                    int answer = scanner.nextInt();
+                    if (persons.length >= answer && answer > 0)
+                        return persons[answer-1];
+                    System.out.println("Некорректный ввод!");
+                }
+                else {
+                    System.out.println("Некорректный ввод!");
+                    scanner.next();
+                }
+            }
         }
         else
             return null;
@@ -50,16 +61,24 @@ public class AddRelationship implements Option{
     public void addOrChoseWhileCreatingRelationship(String member, boolean male, boolean single){
         Scanner scanner = new Scanner(System.in);
         System.out.println(member);
-        System.out.println("1. Создать\n2. Выбрать");
-        int answer = scanner.nextInt();
-        if (answer == 1)
-            new AddNewMember().executeAction(controller);
-        else if (answer == 2){
-            if (choseFromExisted(male, single) != null)
-                controller.addPerson(choseFromExisted(male, single));
+        while (true) {
+            System.out.println("1. Создать\n2. Выбрать");
+            if (scanner.hasNextInt()){
+                int answer = scanner.nextInt();
+                if (answer == 1) {
+                    new AddNewMember().executeAction(controller);
+                    break;
+                } else if (answer == 2) {
+                    Person newPerson = choseFromExisted(male, single);
+                    if (newPerson != null)
+                        controller.addPerson(newPerson);
+                    else
+                        new AddNewMember().executeAction(controller);
+                    break;
+                }
+            }
             else
-                new AddNewMember().executeAction(controller);
+                scanner.next();
         }
-
     }
 }
