@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class Controller {
-    private final String workDirectory = "src/homework2/";
+    private final String workDirectory = "src/homework3/";
     private final Deque<Person> relationshipStack = new ArrayDeque<>();
     private Family family;
     private FamilyResearch familyResearch;
