@@ -1,5 +1,9 @@
 package homework3;
 
+import homework3.model.Family;
+import homework3.model.Person;
+import homework3.model.Relationship;
+
 import java.io.*;
 import java.util.ArrayDeque;
 import java.util.Deque;

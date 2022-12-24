@@ -1,4 +1,4 @@
-package homework3;
+package homework3.model;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;

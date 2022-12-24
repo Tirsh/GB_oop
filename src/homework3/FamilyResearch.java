@@ -1,5 +1,10 @@
 package homework3;
 
+import homework3.model.Family;
+import homework3.model.Person;
+import homework3.model.Relationship;
+import homework3.model.RelationshipsKind;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

@@ -1,7 +1,7 @@
 package homework3.mainMenu;
 
 import homework3.Controller;
-import homework3.Person;
+import homework3.model.Person;
 
 import java.util.Scanner;
 
