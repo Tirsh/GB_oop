@@ -6,6 +6,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Компонент пользовательского интерфейса.
+ * Содержит методы вызова меню:
+ * startMainMenu - вызов основногоменю
+ * researchMenu - меню операций с генелогичепским древом
+ * Пункты меню представлены в виде классов в package-е mainMenu - каждый из классов релизует интерфейс Option
+ * и взаимодействует с компонентой Controller.
+ */
 public class UserInterface {
     Controller controller;
 
@@ -24,9 +32,9 @@ public class UserInterface {
         Scanner scanner = new Scanner(System.in);
         int result = 0;
         while(result != 5){
-            System.out.println("1. Работа с деревом древа");
+            System.out.println("1. Операции с древом");
             System.out.println("2. Создать новое генеалогическое древо");
-            System.out.println("3. Загрузить генеалогическое древо из файла");
+            System.out.println("3. Загрузить древо из файла");
             System.out.println("4. Сохранить изменения");
             System.out.println("5. Выйти");
             if (scanner.hasNextInt()){

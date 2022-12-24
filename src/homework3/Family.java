@@ -2,6 +2,13 @@ package homework3;
 
 import java.util.*;
 
+/**
+ * Компонента связывающая множество объектов человек - Person между собой через компонент связей Relationship
+ * Содержит методы добаления новых членов множества - addMember
+ * и методы добавления новых связей:
+ * marriage - супружество
+ * childBirth - рождение ребенка
+ */
 public class Family {
     private final Map<Person, Set<Relationship>> familyRelationships;
 

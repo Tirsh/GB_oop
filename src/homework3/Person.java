@@ -3,7 +3,10 @@ package homework3;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
+/**
+ * Основной класс модели генеалогисечкого древа
+ * Реализует отдельновзятого человека
+ */
 public class Person implements Serializable {
     private final String firstName;
     private final String lastName;

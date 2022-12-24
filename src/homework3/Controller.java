@@ -12,9 +12,17 @@ public class Controller {
     private Family family;
     private FamilyResearch familyResearch;
 
+    /**
+     * Компонент связывающий пользовательский интерфейс реализуемый в классе UserInterface
+     * с моделью.
+     * Реализует серелизацию, запись и воспроизведения модели из файла.
+     * По умолчанию загружается данные из файла default.tree находящиеся в package-е проекта
+     */
     public Controller() {
-        if (!loadFromFile("default.tree"))
+        if (!loadFromFile("default.tree")) {
             family = new Family();
+            System.out.println("Создан файл по умолчанию");
+        }
         familyResearch = new FamilyResearch(family);
     }
 
@@ -38,7 +46,6 @@ public class Controller {
             objectInputStream.close();
             return true;
         }catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
             System.out.println("Что-то пошло не так");
             System.out.println("Файл базы не найден");
             return false;

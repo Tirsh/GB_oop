@@ -2,6 +2,9 @@ package homework3;
 
 import java.io.Serializable;
 
+/**
+ * Компонент определят связи меу объектами Person
+ */
 public class Relationship implements Serializable {
     private final Person personA;
     private final Person personB;

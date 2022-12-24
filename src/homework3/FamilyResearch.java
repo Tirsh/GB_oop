@@ -6,6 +6,15 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * Компонента для работы с моделью генелогического древа - Family
+ * Содержит методы поиска в моделе:
+ * getWomen - все женщины содержажиеся в древе
+ * getSingle - поиск объектов без связи супружество
+ * Используются для корректного формирования новых связей.
+ * Методы поиска корня в древе и вывода информации:
+ * composeAndShowFamilyTree, findRoot, showFamilyTree
+ */
 public class FamilyResearch {
     private Family family;
 
