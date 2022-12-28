@@ -3,10 +3,16 @@ package homework4;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Компонет Field - поле.
+ * Представляет из себя список Point
+ * Имеет параметры длинна - length, и ширина - width
+ * Иммет метод сборки поля из двумерного массива int[][]
+ */
 public class Field {
     private final List<Point> field;
-    private int width;
-    private int length;
+    private final int width;
+    private final int length;
 
 
     public Field(int[][] field) {
@@ -43,10 +49,6 @@ public class Field {
 
     public int getLength() {
         return length;
-    }
-    public void fieldPrint(){
-        for (Point point:field)
-            System.out.println(point);
     }
 
     @Override

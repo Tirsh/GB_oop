@@ -1,19 +1,33 @@
 package homework4;
 
+/**
+ * Компонента отображения экземпляров Field
+ * Статический метод showField - выводит информацию в консоль
+ */
 public class FieldPrinter {
     public static void showField(Field field){
-        int line = field.getField().get(0).getX();
+        System.out.printf("%-2s| ", "\\");
+        for (int i = 0; i < field.getLength(); i++) {
+            System.out.printf("%-2d", i);
+            System.out.print(" ");
+        }
+        System.out.printf("\n%-2s| ", "-");
+        for (int i = 0; i < field.getLength(); i++) {
+            System.out.printf("%-2s", "-");
+            System.out.print(" ");
+        }
+        int line = -1;
         for (Point point:field.getField()){
             if (line != point.getY()) {
-                System.out.printf("\n");
                 line = point.getY();
+                System.out.printf("\n%-2d| ", line);
             }
             if (point.getValue() == -1)
-                System.out.printf("# ");
+                System.out.print("# ");
             else
                 System.out.printf("%-2d",point.getValue());
-            System.out.printf(" ");
+            System.out.print(" ");
         }
-        System.out.printf("\n");
+        System.out.print("\n\n");
     }
 }

@@ -1,10 +1,14 @@
 package homework4;
 
+/**
+ * Компонет Point - точка
+ * имеет две координаты: x, y
+ * и значение value
+ */
 public class Point {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
     private int value;
-    private int index;
 
     public Point(int x, int y, int value) {
         this.x = x;
@@ -34,6 +38,6 @@ public class Point {
 
     @Override
     public String toString() {
-        return "Point(" + x + ", " + y + "; " + value + ')';
+        return "Point(" + x + ", " + y + ")";
     }
 }
